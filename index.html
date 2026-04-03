@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Productions | Jesus Christ Superstar | Digital Playbill</title>
+<style>
+    :root {
+      --bg: #efe7da;
+      --paper: #f7f1e6;
+      --paper-2: #fbf7ef;
+      --ink: #171513;
+      --muted: #5d544d;
+      --line: rgba(23, 21, 19, 0.16);
+      --line-strong: rgba(23, 21, 19, 0.34);
+      --accent: #6c1717;
+      --accent-2: #b7864d;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+      --radius: 24px;
+      --max: 1320px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(183, 134, 77, 0.16), transparent 28%),
+        linear-gradient(180deg, #e9e1d3 0%, #efe7da 45%, #e6ddcf 100%);
+      line-height: 1.45;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 241, 230, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 42px 0 28px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(108,23,23,0.9), rgba(33,20,18,0.88)),
+        url('images/hero.jpg') center/cover no-repeat;
+      color: #f9f2e8;
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+      min-height: 520px;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(183,134,77,0.34), transparent 26%),
+        linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.48));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.72fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: #ead8bf;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.8rem, 7vw, 5.9rem);
+      line-height: 0.94;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      font-size: 1.08rem;
+      color: rgba(249,242,232,0.9);
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-side {
+      position: relative;
+      background: rgba(251,247,239,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-side h2 {
+      margin: 0 0 12px;
+      font-size: 1.16rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-side p {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+      color: rgba(249,242,232,0.88);
+    }
+
+    .note-bar {
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      padding-top: 14px;
+      font-size: 0.9rem;
+      color: rgba(249,242,232,0.82);
+    }
+
+    main {
+      padding-bottom: 52px;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .section-shell {
+      background: linear-gradient(180deg, var(--paper-2), var(--paper));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-head {
+      padding: 28px 30px 0;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      margin: 12px 0 0;
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-body {
+      padding: 28px 30px 32px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.44);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1rem;
+    }
+
+    .title-page-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .title-playbill {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      background:
+        linear-gradient(140deg, rgba(108,23,23,0.94), rgba(28,18,16,0.94)),
+        url('images/title-bg.jpg') center/cover no-repeat;
+      color: #f9f2e8;
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .title-playbill .smallcap {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      color: #e7d2b0;
+      margin-bottom: 10px;
+    }
+
+    .title-playbill .show {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+
+    .title-playbill .byline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 12px 0 18px;
+      font-size: 0.95rem;
+    }
+
+    .title-playbill .license {
+      font-size: 0.84rem;
+      line-height: 1.35;
+      color: rgba(249,242,232,0.84);
+    }
+
+    .principal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .person-card {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .person-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #ddd4c6;
+    }
+
+    .person-card .content {
+      padding: 16px;
+    }
+
+    .role {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .name {
+      font-size: 1.22rem;
+      margin: 0 0 8px;
+    }
+
+    .person-card p {
+      margin: 0;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .leader-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .leader-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 8px;
+      align-items: end;
+      font-size: 0.92rem;
+      line-height: 1.2;
+    }
+
+    .leader-row .dots {
+      border-bottom: 2px dotted rgba(0,0,0,0.42);
+      transform: translateY(-0.2rem);
+      min-width: 16px;
+    }
+
+    .leader-row .left {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .leader-row .right {
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .text-block p {
+      margin: 0 0 14px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .text-block p:last-child { margin-bottom: 0; }
+
+    .numbers-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .numbers-card h3,
+    .credits-card h3,
+    .bio-card h3 {
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.98rem;
+    }
+
+    .song-list,
+    .credits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .song-item,
+    .credits-list li {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 8px;
+      align-items: end;
+      font-size: 0.88rem;
+    }
+
+    .song-item .title,
+    .credits-list .title {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .song-item .fill,
+    .credits-list .fill {
+      border-bottom: 2px dotted rgba(0,0,0,0.42);
+      transform: translateY(-0.18rem);
+      min-width: 14px;
+    }
+
+    .song-item .who,
+    .credits-list .who {
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .day-label {
+      margin: 16px 0 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .day-label:first-child { margin-top: 0; }
+
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .bio-card {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .bio-headshot {
+      width: 110px;
+      aspect-ratio: 4 / 5;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #e3d9ca, #d6c8b5);
+      border: 1px solid var(--line);
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .bio-text h3 {
+      margin-bottom: 8px;
+    }
+
+    .bio-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .bio-text.expanded p {
+      display: block;
+      overflow: visible;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .section-subhead {
+      margin: 8px 0 18px;
+      padding: 0 4px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 10px 0 0;
+    }
+
+    .modern-playbill {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(108,23,23,0.94), rgba(28,18,16,0.96)),
+        radial-gradient(circle at top, rgba(183,134,77,0.24), transparent 34%);
+      color: #f9f2e8;
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 42px 34px 44px;
+    }
+
+    .modern-playbill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 14%, rgba(183,134,77,0.22), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.18));
+    }
+
+    .modern-playbill-inner {
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .modern-playbill .eyebrow {
+      margin-bottom: 14px;
+      color: #ead8bf;
+    }
+
+    .modern-title {
+      font-size: clamp(3rem, 8vw, 5.4rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin: 0 0 24px;
+      font-weight: 700;
+      color: #fff6ea;
+    }
+
+    .modern-byline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      align-items: start;
+    }
+
+    .modern-byline .label {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ead8bf;
+    }
+
+    .modern-byline .name {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin: 0;
+      font-weight: 700;
+      color: #fff6ea;
+    }
+
+    .modern-license {
+      max-width: 880px;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+      line-height: 1.45;
+      color: rgba(249,242,232,0.92);
+    }
+
+    .modern-license .website {
+      color: #f0c98d;
+    }
+
+    .modern-with {
+      margin: 18px 0 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ead8bf;
+    }
+
+    .modern-names {
+      display: grid;
+      gap: 10px;
+      margin: 0 auto 40px;
+      max-width: 920px;
+    }
+
+    .modern-names-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #fff6ea;
+    }
+
+    .modern-credits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 22px;
+      max-width: 920px;
+      margin: 0 auto 22px;
+    }
+
+    .modern-credit {
+      text-align: center;
+      padding: 14px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px);
+    }
+
+    .modern-credit.full-width {
+      grid-column: 1 / -1;
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .modern-credit .title {
+      font-size: clamp(1.05rem, 2vw, 1.5rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ead8bf;
+    }
+
+    .modern-credit .value {
+      font-size: clamp(1.2rem, 2.8vw, 2.05rem);
+      line-height: 1.08;
+      text-transform: uppercase;
+      color: #fff6ea;
+    }
+
+    .modern-warning {
+      font-size: clamp(1rem, 2vw, 1.26rem);
+      font-weight: 700;
+      margin-top: 10px;
+      color: #fff6ea;
+    }
+
+    @media (max-width: 720px) {
+      .modern-byline,
+      .modern-credits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .classic-playbill {
+      background: #f3f0eb;
+      color: #111;
+      border-radius: 24px;
+      padding: 40px 34px 46px;
+    }
+
+    .classic-playbill-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .classic-title {
+      font-size: clamp(3rem, 8vw, 5.3rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin: 0 0 24px;
+      font-weight: 700;
+    }
+
+    .classic-byline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 760px;
+      margin: 0 auto 26px;
+      align-items: start;
+    }
+
+    .classic-byline .label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .classic-byline .name {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .classic-license {
+      max-width: 860px;
+      margin: 0 auto 28px;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    .classic-license .website {
+      color: #1648ad;
+    }
+
+    .classic-with {
+      margin: 18px 0 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .classic-names {
+      display: grid;
+      gap: 10px;
+      margin: 0 auto 44px;
+      max-width: 900px;
+    }
+
+    .classic-names-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: clamp(1.15rem, 3vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .classic-credits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 34px;
+      max-width: 860px;
+      margin: 0 auto 34px;
+    }
+
+    .classic-credit {
+      text-align: center;
+    }
+
+    .classic-credit .title {
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .classic-credit .value {
+      font-size: clamp(1.2rem, 2.8vw, 2.15rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .classic-warning {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 720px) {
+      .classic-byline,
+      .classic-credits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-content,
+      .overview-grid,
+      .title-page-grid,
+      .roster-grid,
+      .numbers-layout,
+      .credits-grid,
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card,
+      .section-head,
+      .section-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero-card { padding-top: 28px; padding-bottom: 28px; }
+      .principal-grid { grid-template-columns: 1fr; }
+
+      .song-item,
+      .credits-list li,
+      .leader-row {
+        grid-template-columns: 1fr;
+      }
+
+      .song-item .fill,
+      .credits-list .fill,
+      .leader-row .dots { display: none; }
+
+      .song-item .who,
+      .credits-list .who,
+      .leader-row .right { text-align: left; }
+
+      .title-playbill .byline { grid-template-columns: 1fr; }
+
+      .bio-card {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-headshot {
+        width: 100%;
+        max-width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+<div class="container topbar-inner">
+<div class="brand">Midnight Productions</div>
+<nav class="nav">
+<a href="#playbill">Playbill</a>
+<a href="#cast-and-credits">Cast &amp; Credits</a>
+<a href="#songs">Songs</a>
+<a href="#bios">Bios</a>
+</nav>
+</div>
+</header>
+<main>
+<section id="playbill">
+<div class="container">
+<div class="modern-playbill">
+<div class="modern-playbill-inner">
+<div class="eyebrow">Midnight Productions presents</div>
+<h1 class="modern-title">Jesus Christ Superstar</h1>
+<div class="modern-byline">
+<div>
+<div class="label">Lyrics by</div>
+<div class="name">Tim Rice</div>
+</div>
+<div>
+<div class="label">Music by</div>
+<div class="name">Andrew Lloyd Webber</div>
+</div>
+</div>
+<div class="modern-license">
+              Jesus Christ Superstar is presented by arrangement with Concord Theatricals on behalf of The Really Useful Group.<br/>
+<span class="website">www.concordtheatricals.com</span>
+</div>
+<div class="modern-with">With</div>
+<div class="modern-names">
+<div class="modern-names-row">
+<span>Gigi Gibilisco</span>
+<span>Jamey Helsman</span>
+<span>Katrina Pilchman</span>
+</div>
+<div class="modern-names-row">
+<span>Steve Lobis</span>
+<span>Brandon Szeker</span>
+</div>
+<div class="modern-names-row">
+<span>Pat Parton</span>
+<span>Blair Allen</span>
+<span>Michael Hall</span>
+</div>
+</div>
+<div class="modern-credits-grid">
+<div class="modern-credit">
+<div class="title">Director</div>
+<div class="value">Diane Wargo</div>
+</div>
+<div class="modern-credit">
+<div class="title">Artistic Director</div>
+<div class="value">Newton R. Gilchrist</div>
+</div>
+<div class="modern-credit">
+<div class="title">Producer / Lighting Designer</div>
+<div class="value">Allen G. Doak, Jr.</div>
+</div>
+<div class="modern-credit">
+<div class="title">Musical Director</div>
+<div class="value">Sue Den Outer</div>
+</div>
+<div class="modern-credit">
+<div class="title">Sound Design</div>
+<div class="value">Travis Johnson</div>
+</div>
+<div class="modern-credit">
+<div class="title">Music Supervisor</div>
+<div class="value">Craig Barna</div>
+</div>
+<div class="modern-credit">
+<div class="title">Choreographer</div>
+<div class="value">Kimberly Topper</div>
+</div>
+<div class="modern-credit">
+<div class="title">Dance Captain</div>
+<div class="value">Jennifer Kaiser</div>
+</div>
+<div class="modern-credit">
+<div class="title">Stage Management</div>
+<div class="value">Laura Baron</div>
+</div>
+<div class="modern-credit">
+<div class="title">Makeup Design</div>
+<div class="value">Miranda Leiggi</div>
+</div>
+<div class="modern-credit full-width">
+<div class="title">Original Choral Supervisor</div>
+<div class="value">Carol Strech</div>
+</div>
+</div>
+<div class="modern-warning">The taking of pictures or recording this production is strictly forbidden</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cast-and-credits">
+<div class="container">
+<div class="section-shell">
+<div class="section-head">
+<div class="kicker">Company</div>
+<h2>Cast, Ensemble, Orchestra &amp; Staff</h2>
+</div>
+<div class="section-body">
+<div class="roster-grid">
+<div class="card">
+<h3>Cast of Characters</h3>
+<div class="leader-list">
+<div class="leader-row"><span class="left">Jesus of Nazareth</span><span class="dots"></span><span class="right">Gigi Gibilisco</span></div>
+<div class="leader-row"><span class="left">Judas Iscariot</span><span class="dots"></span><span class="right">Jamey Helsman</span></div>
+<div class="leader-row"><span class="left">Pontius Pilate</span><span class="dots"></span><span class="right">Steve Lobis</span></div>
+<div class="leader-row"><span class="left">Mary Magdalene</span><span class="dots"></span><span class="right">Katrina Pilchman</span></div>
+<div class="leader-row"><span class="left">King Herod</span><span class="dots"></span><span class="right">Brandon Szeker</span></div>
+<div class="leader-row"><span class="left">Caiaphas</span><span class="dots"></span><span class="right">Pat Parton</span></div>
+<div class="leader-row"><span class="left">Peter</span><span class="dots"></span><span class="right">Justin Pilchman</span></div>
+<div class="leader-row"><span class="left">Annas</span><span class="dots"></span><span class="right">Blair Allen</span></div>
+<div class="leader-row"><span class="left">Priest 3</span><span class="dots"></span><span class="right">Michael Hall</span></div>
+<div class="leader-row"><span class="left">Simon Zealotes</span><span class="dots"></span><span class="right">Jaime Gibilisco</span></div>
+<div class="leader-row"><span class="left">Maid by the Fire</span><span class="dots"></span><span class="right">Jennifer Pilchman</span></div>
+<div class="leader-row"><span class="left">Mary Mother of Christ</span><span class="dots"></span><span class="right">Susan Fowler</span></div>
+<div class="leader-row"><span class="left">Soldier</span><span class="dots"></span><span class="right">Chris Learn</span></div>
+<div class="leader-row"><span class="left">Soldier</span><span class="dots"></span><span class="right">Jerry Wargo</span></div>
+</div>
+</div>
+<div class="text-block">
+<div class="card" style="margin-bottom: 18px;">
+<h3>Ensemble</h3>
+<p>Cathy Coryat, Willa Douglas, Darice Eppinger, Allison Feinstein, Skyla Grewe, Molly Hofstaedter, Kristin Kraus Learn, Heather Parton, Indiah Porter, Gunjan Rastogi-Wilson, James Rastogi-Wilson, Emily Richards, Lisa Spring, Sherry Vocaturo, Troy Burroughs, Klaus Heitman, Joe Mitchell, Luke Nicastro, Jim Palmer, Matthew Spring, Joe Stockette, Steve Wolfe.</p>
+</div>
+<div class="card" style="margin-bottom: 18px;">
+<h3>Child Chorus</h3>
+<p>Isabel Dunlap, Joseph Richards, Elyse Topper, Riley Topper, Erin Topper, Mira Zimmelman, Rohan Rastogi-Wilson, Krish Rastogi-Wilson.</p>
+</div>
+<div class="card" style="margin-bottom: 18px;">
+<h3>Dancers</h3>
+<p>Jules Smith, Lisa Watkins, Damian Hamm, Jennifer Kaiser, Kimberly Topper.</p>
+</div>
+<div class="card" style="margin-bottom: 18px;">
+<h3>Apostles</h3>
+<p>Ken Ambs, Connor Learn, Tyler Pelton, Vince Pagliaro, Alex Ridder, Emily Schladebeck, Brian Welsh.</p>
+</div>
+<div class="card" style="margin-bottom: 18px;">
+<h3>Orchestra</h3>
+<p>Keys 1/Conductor Sue den Outer<br/>Electric Guitar — Kevin Kuchinsky<br/>Keys 1 — Andrew McMaster, Alex Otey<br/>Electric Bass — Jay Ronca<br/>Percussion — Tim Burns</p>
+</div>
+<div class="card">
+<h3>Technical Staff</h3>
+<p>Paul Andrews, Niko Andrews, Laura Baron, Jeffery Hearn, Chris Keegan, Miranda Leiggi, Jacob Peterson, Karl Peterson, Sam Reilley.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="songs">
+<div class="container">
+<div class="section-shell">
+<div class="section-head">
+<div class="kicker">Program</div>
+<h2>Musical Numbers</h2>
+</div>
+<div class="section-body">
+<div class="numbers-layout">
+<div class="card numbers-card">
+<h3></h3>
+<div class="day-label">The Years Before...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">Overture</span><span class="fill"></span><span class="who">Company</span></div>
+<div class="song-item"><span class="title">Heaven on Their Minds</span><span class="fill"></span><span class="who">Judas</span></div>
+</div>
+<div class="day-label">Friday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">What's the Buzz</span><span class="fill"></span><span class="who">Jesus, Mary, Company</span></div>
+<div class="song-item"><span class="title">Strange Thing Mystifying</span><span class="fill"></span><span class="who">Judas, Jesus, Company</span></div>
+<div class="song-item"><span class="title">Everything's Alright</span><span class="fill"></span><span class="who">Mary, Judas, Jesus, Company</span></div>
+</div>
+<div class="day-label">Saturday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">This Jesus Must Die</span><span class="fill"></span><span class="who">Caiaphas, Annas, Priest, Company</span></div>
+</div>
+<div class="day-label">Sunday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">Hosanna</span><span class="fill"></span><span class="who">Caiaphas, Jesus, Company</span></div>
+<div class="song-item"><span class="title">Simon Zealotes</span><span class="fill"></span><span class="who">Simon, Soul Sisters, Company</span></div>
+<div class="song-item"><span class="title">Poor Jerusalem</span><span class="fill"></span><span class="who">Jesus</span></div>
+</div>
+<div class="day-label">Monday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">Pilate's Dream</span><span class="fill"></span><span class="who">Pilate</span></div>
+<div class="song-item"><span class="title">The Temple</span><span class="fill"></span><span class="who">Jesus, Company</span></div>
+<div class="song-item"><span class="title">I Don't Know How to Love Him</span><span class="fill"></span><span class="who">Mary</span></div>
+</div>
+</div>
+<div class="card numbers-card">
+<h3></h3>
+<div class="day-label">Tuesday...</div>
+<div class="song-list">
+<div class="song-item">
+<div class="song-item"><span class="title">Damned for All Time / Blood Money</span><span class="fill"></span><span class="who">Judas, Caiaphas, Annas, Priest</span></div>
+</div>
+<div class="day-label">Thursday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">The Last Supper</span><span class="fill"></span><span class="who">Jesus, Judas, Apostles</span></div>
+<div class="song-item"><span class="title">Gethsemane</span><span class="fill"></span><span class="who">Jesus</span></div>
+<div class="song-item"><span class="title">The Arrest</span><span class="fill"></span><span class="who">Peter, Jesus, Apostles, Caiaphas, Annas, Priest</span></div>
+<div class="song-item"><span class="title">Peter's Denial</span><span class="fill"></span><span class="who">Maid By The Fire, Old Man, Peter, Mary</span></div>
+</div>
+<div class="day-label">Friday...</div>
+<div class="song-list">
+<div class="song-item"><span class="title">Pilate and Christ</span><span class="fill"></span><span class="who">Pilate, Soldier, Jesus, Company</span></div>
+<div class="song-item"><span class="title">King Herod's Song</span><span class="fill"></span><span class="who">King Herod and Herodettes</span></div>
+<div class="song-item"><span class="title">Could We Start Again, Please</span><span class="fill"></span><span class="who">Mary, Peter, Maid By The Fire, M Mary</span></div>
+<div class="song-item"><span class="title">Judas' Death</span><span class="fill"></span><span class="who">Judas, Caiaphas, Annas, Priest, Tormenters</span></div>
+<div class="song-item"><span class="title">Trial Before Pilate</span><span class="fill"></span><span class="who">Pilate, Caiaphas, Jesus, Mob</span></div>
+<div class="song-item"><span class="title">Superstar</span><span class="fill"></span><span class="who">Judas, Soul Sisters, Company</span></div>
+<div class="song-item"><span class="title">John 19:41</span><span class="fill"></span><span class="who">Orchestra</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></section>
+<section id="bios">
+<div class="container">
+<div class="section-shell">
+<div class="section-head">
+<div class="kicker">Playbill Archive</div>
+<h2>Cast Biographies</h2>
+</div>
+<div class="section-body">
+<div class="section-subhead">Leads</div>
+<div class="bio-grid" style="margin-bottom: 28px;">
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Blair Allen.jpg')"></div>
+<div class="bio-text">
+<h3>Blair Allen (Annas)</h3>
+<p>Blair Allen has over 10 years of performing arts experience. She has starred in Brainspunk Theater's Cabaret, McKeesport Little Theater's Hair The Musical, RENT, Lock Haven University's Footloose, The Good Woman of Setzuan, Expecting Isabelle, Lend Me A Tenor, and Dangerously Improv Group. She has produced, written, and directed two Original Plays (Impact, Final Notice) and teaches Performing Arts at Camden Prep High School. She would like to thank the cast and crew for this opportunity, her family and friends, her loving fiancé Brandon, and every black woman who has graced the stage.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Susan Fowler.JPG')"></div>
+<div class="bio-text">
+<h3>Susan Fowler (Mother Mary)</h3>
+<p>Susan has been a part of Midnight Productions, Jesus Christ Superstar - on and off since the late 90's, playing various ensemble roles, Lepers/Accusers, Soulsister, and Maid by the Fire for several years. She has had the honor of portraying Mother Mary in this beautiful production five times.  Susan has been performing in local &amp; regional theaters in NJ/NY/PA for over 30 years, in both musicals as well as plays. Recent musical credits include Violet Shaw (Footloose), Violet (9 to 5 The Musical), Sister Berthe (The Sound of Music), Mrs. Meers (Thoroughly Modern Millie), and Marion Woolnough (The Boy From Oz).</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/gigi-gibilisco.jpg')"></div>
+<div class="bio-text">
+<h3>Gigi Gibilisco (Jesus)</h3>
+<p>is excited to return to the stage with Midnight Productions. He is currently the Assistant Music Director at Notre Dame HS. Past performances include Prince Eric in “The Little Mermaid,” Aaron Fox in “Curtain,” Tony in “West Side Story,” Valjean in “Les Misérables,” Bat Boy in “Bat Boy,” Jamie in “The Last 5 Years,” Jesus in “Godspell,” and Bill Calhoun in “Kiss Me Kate.” Gigi holds a Bachelor of Arts in Music, Master of Arts in Teaching in Music Education, and is pursuing a Master of Fine Arts in Composition and Orchestration. He thanks his family and friends for always
+supporting him..</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Jaime Gibilisco.jpg')"></div>
+<div class="bio-text">
+<h3>Jaime Gibilisco (Simon)</h3>
+<p>Jaime Gibilisco is thrilled to return to the stage with Midnight Productions for his fourth show with the company. Since college, Jaime is usually found contributing to pit orchestras, so he is especially thankful to this production team for helping him make the transition back onto the stage. Outside of the theater, Jaime is a dedicated educator entering his 10th year as a history teacher at Notre Dame High School, where he currently leads the Social Studies Department. He could not do any of this without the love and support of his wonderful wife, Helena, and their two children, Jace and Lilly.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/jamey-helsman.jpg')"></div>
+<div class="bio-text">
+<h3>Jamey Helsman (Judas)</h3>
+<p>In the fall of 1994, college freshman baseball player, I auditioned for Midnight Productions’ Jesus Christ Superstar in the community room of the Oxford Valley Mall—which, if you’ve ever been there, is exactly as glamorous as it sounds. What I didn’t know then was that one audition would bring me into a family that’s been stuck with me for over 30 years. Somewhere along the way, castmates turned into lifelong friends… and now you’re all basically relatives whether you like it or not. A lot of us grew up on the Keswick stage—learning our notes, missing our cues, and pretending we knew what we were doing. We’ve shared comedy, tragedy, and a whole lot of “what just happened?” moments. For me, nothing tops getting to share that stage with my two daughters, Smooch and Bubba. That was pretty special. We did try to get my son E up there too… but he made the decision to stay in the audience and judge us from a safe distance. I love you three more than anything. For the last 20-some years, I’ve been down in North Carolina—same sales job since 2007, coaching high school baseball since 2015. Every now and then my two passions collide, and they let me sing the National Anthem… which either inspires a crowd or makes them wish the game would start sooner. A huge thank you to my family, extended family, and friends for supporting this show all these years. Seriously, the fact that you keep coming back means either you love us… or you just don’t know how to say no. To Newt and Alan—I don’t know how you’ve put up with me this long, but at this point, I think it’s legally binding. I love you guys. To Mom—none of this happens without you. Thank you for being my rock, my biggest supporter, and probably my longest-running fan. And to Aunt Peggy—thanks for the 20 bucks and the gummy bears. Honestly, still one of the best sponsorship deals I’ve ever had. .</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Michael Hall.jpg')"></div>
+<div class="bio-text">
+<h3>Michael Hall (Priest 3)</h3>
+<p>Michael Hall is a paraprofessional at The Quaker School at Horsham. He is the co-founder of TQS D&amp;D Collective and co-director of TQS Drama. He is super pumped to be a part of his first production of Jesus Christ Superstar! Previous roles include Patrick Star (SpongeBob Musical), Rod (Avenue Q), and Miles the Boyfriend (She Kills Monsters). He would like to dedicate his performance to his father Neil Hall in heaven. Finn loves you, dad!!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Katrina Pilchman.jpg')"></div>
+<div class="bio-text">
+<h3>Katrina Pilchman (Mary Magdalene)</h3>
+<p>Katrina Pilchman is excited and honored to be reprising her role as Mary Magdalene in Midnight Production’s Jesus Christ Superstar. Previous stage credits include Jesus Christ Superstar (Mary Magdalene, Midnight Productions), FABLES (Traveling Woman, staged reading), The Hunchback of Notre Dame (Statue/Joan of Arc, Pennington Players), and Beauty and the Beast (Featured Ensemble, Newtown Arts Company). Her operatic and classical experience includes performances with Delaware Valley Opera and Boston University, including Dialogues of the Carmelites, Les Fables, La Sonnambula, and Romeo et Juliette, as well as soloist work in sacred and concert repertoire by Bach, Mozart, and Brahms. Katrina holds a Master’s degree in Multicultural Education from Eastern University and a Bachelor of Music from Boston University. She currently directs the general music, choir, and instrumental programs at Villa Victoria Academy in Ewing, New Jersey. She would like to thank her husband, Justin (Peter), and her family for their endless love and support, and sends a special shoutout to her daughter, Daphne Rose — I love you and can’t wait to see you on stage one day!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Steve Lobis.jpeg')"></div>
+<div class="bio-text">
+<h3>Steve Lobis (Pontius Pilate)</h3>
+<p>Steve Lobis (Pontius Pilate) is thrilled to return to Midnight Productions, where his connection dates back to when he first appeared with the company at just 19 years old. A familiar face in the Delaware Valley theater community for over 30 years, Steve has brought a wide range of memorable characters to life on stage. Among his favorite roles are John Dickinson in 1776, Pseudolus in A Funny Thing Happened on the Way to the Forum, Lawrence in Dirty Rotten Scoundrels, and the dual roles of the Governor and the Innkeeper in Man of La Mancha. This May, Steve will appear in Charley’s Aunt in Bucks County.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Pat Parton.jpg')"></div>
+<div class="bio-text">
+<h3>Pat Parton (Caiaphas)</h3>
+<p>This will mark the tenth time Pat has been part of this company’s production of Superstar. It also marks the ninth time he gets to share the stage with his daughter in this production. He is honored to be a part of such a talented cast and crew that makes this production so special to him. He would like to say thank you to his wife for putting up with the constant rehearsals at home. The cast and crew have truly become part of his family. To which he says thank you for allowing me the pleasure of your company in the telling of this story. I hope you enjoy this rendition of this groundbreaking rock opera as much as we enjoy bringing it to life.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Jennifer Pilchman.jpg')"></div>
+<div class="bio-text">
+<h3>Jennifer Pilchman (Maid by the Fire)</h3>
+<p>Jennifer Pilchman is excited to be back at the Keswick performing Jesus Christ Superstar with her brother and sister-in-law. She has done this show since the age of 15 and is honored to now be playing the role of Maid by the Fire. Some of her previous stage credits include: RENT (Joanne), Titanic: The Musical (Caroline), Avenue Q (Kate Monster), and In the Heights (Camila). She would like to thank the production team, cast and crew. Thank you to Nick for your love and support. Love to her 3 month old baby Luna, I can’t wait to share this show with you when you are old enough.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Justin Pilchman.jpg')"></div>
+<div class="bio-text">
+<h3>Justin Pilchman (Peter)</h3>
+<p>Justin is excited to reprise his role as Peter in this year’s production of Jesus Christ Superstar. He is especially thrilled to share the stage with his wife, Katrina, and his sister, Jennifer, making this production a true family affair. By day, Justin is a partner at the law firm of Stuckert and Yates in Newtown. When he’s not in the courtroom or at rehearsal, he enjoys traveling and going on adventures with his daughter—and biggest fan—Daphne.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/brandon szeker.jpg')"></div>
+<div class="bio-text">
+<h3>Brandon Szeker (Herod)</h3>
+<p>Brandon Szeker is a Philadelphia-based publicist and founder of brandON communications. He's overjoyed to be returning as Herod and has been involved with Midnight Productions for over 20 years. Brandon has worked for over 18 years in the Philadelphia media, mastering the art of storytelling both on and off the stage. When he's not working with clients or under the lights, Brandon can be found in South Philly with his beagle, Uncle Bernie, who hears him rehearse every single day.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Apostles</div>
+<div class="bio-grid" style="margin-bottom: 28px;">
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Ken Ambs.jpg')"></div>
+<div class="bio-text">
+<h3>Ken Ambs (Apostle)</h3>
+<p>is thrilled to be returning to the Keswick with this talented cast.  This cast is family and it is great to be together again performing this show.  Thanks to Alan, Newt, Diane and Kim.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Connor Learn.jpeg')"></div>
+<div class="bio-text">
+<h3>Connor Learn (Apostle)</h3>
+<p>Connor is thrilled to return to the Keswick stage in “Jesus Christ Superstar” as a returning cast member since 2006. He is honored to share the stage with his wife and his father in another round of this production. Congratulations to the cast and crew for another great run.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Tyler Pelton.jpeg')"></div>
+<div class="bio-text">
+<h3>Tyler Pelton (Apostle)</h3>
+<p>Tyler Pelton (he/him) is overjoyed to join the cast of Jesus Christ Superstar with Midnight Productions. Most recent appearances include Ensemble in Cinderella with Revival Productions as well as Mr. Bundles in Annie at Music Mountain Theatre. Other favorite roles include Mendel in Fiddler on the Roof and Mike in White Christmas, both also at Music Mountain Theatre. A passionate performer with a love for storytelling, Tyler when not on stage enjoys spending time with family, friends, and his beloved fur babies—Paris, Pixie, and Maple—whose love and antics keep life full of joy and laughter. Tyler is deeply grateful for the support of his cast and crew who make every performance possible.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Vince Pagliaro.jpg')"></div>
+<div class="bio-text">
+<h3>Vince Pagliaro (Apostle)</h3>
+<p>This is Vince Pagliaro's first time performing Jesus Christ Superstar with Midnight Productions. Vince is a huge supporter of the arts as a music teacher as well as performing in musical theatre in high school and junior high. When not working, Vince likes to play boardgames with friends, exercise, and perform ballroom dancing.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Alex Ridder.jpg')"></div>
+<div class="bio-text">
+<h3>Alex Ridder (Apostle)</h3>
+<p>Alex Ridder, Apostle, is so excited to be joining this production after seeing it many years ago. This show has been such a fun and moving experience thanks to the cast and amazing production team.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Emily Schladebeck.jpg')"></div>
+<div class="bio-text">
+<h3>Emily Schladebeck (Apostle)</h3>
+<p>Emily Schladebeck is a John J. Cali School of Music (Montclair State University) Alumni and is a Vocal Music Teacher in Belmar, NJ. She is so excited to be a part of this company and would like to thank her sister Jessica, and boyfriend Istvan for their support and encouragement.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Brian Welsh (Apostle)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Dancers</div>
+<div class="bio-grid" style="margin-bottom: 28px;">
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Damian Hamm (Dancer)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Jennifer Kaiser (Temptress)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Jules Smith (Dancer)</h3>
+<p>Jules (Dancer) is so excited to be a part of her first show with Midnight Productions! Other recent credits include Firebringer (Shwoopsie), She Loves Me (Ensemble), and Witness for the Prosecution (The Other Woman). She would like to thank her friends, family, and the cast and crew for all their love and support! She is looking forward to hopefully performing more shows with Midnight Productions in the future!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Kim Topper.JPG')"></div>
+<div class="bio-text">
+<h3>Kimberly Topper (Temptress)</h3>
+<p>Kimberly Topper (Choreographer/Temptress) is thrilled to return to Jesus Christ Superstar for her 12th show with Midnight Productions and she's honored to share the stage for the first time with daughters Erin, Riley and Elyse. She has many local credits in directing and choreographing in addition to producing musicals for Villa Victoria Academy in Ewing, NJ. Kim is incredibly grateful for her mentor, Newton Gilchrist, and production partners Diane, Sue, Jen, Allen, Travis, and Laura. She thanks the cast for trusting her process and is ever grateful to her husband Jim for his endless support. Merde!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Lisa Watkins (Dancer)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Soldiers</div>
+<div class="bio-grid" style="margin-bottom: 28px;">
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Chris Learn (Soldier)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/GERALD J. WARGO JR..jpeg')"></div>
+<div class="bio-text">
+<h3>GERALD J. WARGO JR. (Soldier)</h3>
+<p>is honored to join Mid Night Productions for this staging of Jesus Christ Superstar. A seasoned veteran with over 25 years of theatrical experience, Jerry’s favorite credits include Showboat (Snake Charmer/Waiter), Oklahoma! (Cowboy/Dancer), and The Best Christmas Pageant Ever (Reverend Hopkins). He extends his deepest gratitude to his sister, Diane, for the opportunity to return to the stage, and to his mother, Lorraine, for her lifelong encouragement. Much love to his wife, Jill, and children, Lauren and Grant, for always supporting his theatrical dreams, and special thanks to his patient feline companions, Korra and Katara. .</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Ensemble Members</div>
+<div class="bio-grid" style="margin-bottom: 28px;">
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Troy Burroughs (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Cathy Coryat.jpg')"></div>
+<div class="bio-text">
+<h3>Cathy Coryat (Ensemble)</h3>
+<p>Cathy Coryat of Cream Ridge, NJ is honored to return to the stage in this amazing production. Over the past 10 years she has been seen in many productions, primarily at the Kelsey Theater. Sending love and gratitude for the undying support of her husband and 4 beautiful children. Special thanks and love to Diane, one of her 1st theater mentors.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Willa Douglas.jpg')"></div>
+<div class="bio-text">
+<h3>Willa Douglas (Ensemble)</h3>
+<p>Willa Rose Douglas is a local performer and teacher. Some of her past credits include Bonnie and Clyde (Blanche), Theory of Relativity (Mira), and performing artist at Mt. Gretna concert series. She is enjoying her first production of JCS and thanks the cast and crew.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Darice Eppinger.jpg')"></div>
+<div class="bio-text">
+<h3>Darice Eppinger (Ensemble)</h3>
+<p>Darice Eppinger is thrilled to be part of this production of Jesus Christ Superstar, a true bucket list experience for her. This marks her first time on stage since performing in several ensemble productions in high school and, as she puts it, “that was a very long time ago!” By day, Darice is a dedicated real estate professional who enjoys helping clients navigate meaningful life transitions. She resides with her husband, John, to whom she has been happily married for 30 years, and is the proud mom of two adult sons, John and Derek. Special thanks to her friend and fellow castmate, Joe Mitchell, for letting her know when auditions were taking place this year and for helping make this experience possible.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Allison Feinstein.jpg')"></div>
+<div class="bio-text">
+<h3>Allison Feinstein (Ensemble)</h3>
+<p>Allison Feinstein is a Philadelphia based theatre artist and teacher. This is her first time working with Midnight Productions and is happy to be part of the show! Allison enjoys working both on and off stage with some previous credits including: Ariel in Footloose, Alice in Dance of Death, and Potiphar’s Wife in Joseph. She hopes to one day play Natalie in Next to Normal. Lastly, she would like to thank her family for their ongoing support!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Skyla Grewe.jpeg')"></div>
+<div class="bio-text">
+<h3>Skyla Grewe (Ensemble)</h3>
+<p>Skyla is happy to be part of the cast of Jesus Christ Superstar, with this being her 2nd time doing the show. She has been a part of Midnight Productions for 7 years, with her experience in the haunted house. She has done theatre all throughout her life, and is also a current nursing student graduating is May. She is so grateful and blessed to be apart of this production!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Klaus Heitman (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Molly Hofstaedter.JPG')"></div>
+<div class="bio-text">
+<h3>Molly Hofstaedter (Ensemble)</h3>
+<p>Molly Hofstaedter, she / her, is thrilled to be joining the legacy of Jesus Christ Superstar, her very first favorite musical, at the Keswick! Recently: Mick’s Irish Company, A Christmas Story, Walnut Street, Escape to Margaritaville, Candlelight, Sunset Park, River Union Stage, and Jersey Boys, Cumberland Theatre. Thanks to this lovely company, and love to family &amp; friends. For Zach!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Kristin Kraus Learn.jpeg')"></div>
+<div class="bio-text">
+<h3>Kristin Kraus Learn (Ensemble)</h3>
+<p>Kristin is honored to join Midnight Productions for the third time as a cast member in “Jesus Christ Superstar.” This show holds a very special place in her heart, as it is where she met her husband, Connor. Thank you to the cast and crew for another wonderful experience!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Joe Mitchell.jpg')"></div>
+<div class="bio-text">
+<h3>Joe Mitchell (Ensemble)</h3>
+<p>Joe is honored to be in Midnight Production of Jesus Christ Superstar. He most recently appeared in Newtown Arts Company’s (NAC) production of She Loves Me and was a Co-Producer of the NAC’s production of Blithe Spirit. He has also performed in Bucks County Gilbert and Sullivan Society productions of Ruddigore and The Mikado.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Luke Nicastro .jpg')"></div>
+<div class="bio-text">
+<h3>Luke Nicastro (Ensemble)</h3>
+<p>Luke Nicastro is a musician and artist who is new to the theatre world, but is so excited to have this be his first real show. More established in the progressive rock scene, Luke has previously been on tours with the likes of Jon Anderson of Yes and past members of Frank Zappa’s Mothers. Luke greatly appreciates his family for encouraging him to always step out of his comfort zone.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Jim Palmer (Ensemble)</h3>
+<p>Bio and headshot provided on paper.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Heather Parton (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Indiah Porter.jpeg')"></div>
+<div class="bio-text">
+<h3>Indiah Porter (Ensemble)</h3>
+<p>Indiah is thrilled to make her Keswick Theatre debut. Porgy and Bess (Ritz Theatre Co), Settlement Music School, and Saint Marks Singers. Thank you to her family, friends, loved ones, and teacher.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Gunjan Rastogi-Wilson (Ensemble)</h3>
+<p>Gunjan is thrilled to be performing back on stage! Native to Philly, she has been singing her whole life and works as an NP by day, mom by night.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>James Rastogi-Wilson (Ensemble)</h3>
+<p>Jim is making his stage debut! He is excited to be part of this electrifying production and proud to share the stage with his family.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Emily Richards (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Lisa Spring (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Matthew Spring.jpg')"></div>
+<div class="bio-text">
+<h3>Matthew Spring (Ensemble)</h3>
+<p>Matt Spring is a college student at RIT, and has been doing this show since he was 8 years old! He is excited to finally be back at the Keswick Theatre after an extended break.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Joseph Stockette.jpeg')"></div>
+<div class="bio-text">
+<h3>Joe Stockette (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Sherry Vocaturo (Ensemble)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Steve Wolfe.jpg')"></div>
+<div class="bio-text">
+<h3>Steve Wolfe (Ensemble)</h3>
+<p>Steve is thrilled to join the ensemble for this wonderful production! Recent appearances have included Witness for the Prosecution (John Mayhew); Fiddler on the Roof (Avram); and Oklahoma! (Andrew Carnes). Other work includes Music Man (Marcellus Washburn); The Matchmaker (Cornelius Hackl); How to Succeed in Business (Bert Bratt); Odd Couple (Oscar Madison); and Guys &amp; Dolls (Arvide). With thanks to Diane Wargo for this opportunity; his mom for inspiration since he was a kid; and his wife Magda for unwavering support.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Child Chorus</div>
+<div class="bio-grid">
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Isabel Dunlap (Child Chorus)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Joseph Richards (Child Chorus)</h3>
+<p>Bio coming soon.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Erin Topper.jpeg')"></div>
+JCS<div class="bio-text">
+<h3>Krish Rastogi-Wilson (Child Chorus)</h3>
+<p>Krish is a 7th grader who is active in school and community theater (including Frozen, Jr. and Guys &amp; Dolls, Jr.) as well as choir. He can’t wait to perform on the Keswick stage with his family!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot"></div>
+<div class="bio-text">
+<h3>Rohan Rastogi-Wilson (Child Chorus)</h3>
+<p>Rohan is a 7th grader at Tamanend MS, and sings in his school a cappella group and BCMEA choir. He is excited to make his stage debut with his twin Krish!</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Erin Topper.jpeg')"></div>
+<div class="bio-text">
+<h3>Erin Topper (Child Chorus)</h3>
+<p>Erin Topper (Ensemble) is delighted to join the cast of Jesus Christ Superstar! A 7th grader at Newtown Middle School, she is a competitively trained dancer and performed at the Chita Rivera Awards in NYC with The Dance Ground. Previous theater roles include Kate McGowan (Titanic), Columbine Doll (The Nutcracker), Mary Poppins (Mary Poppins, Jr), Elsa (Frozen, Jr), Fiona (Shrek, Jr), and Jasmine (Aladdin, Jr).</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Elyse Topper.jpeg')"></div>
+<div class="bio-text">
+<h3>Elyse Topper (Child Chorus)</h3>
+<p>Elyse Topper (Ensemble) feels so excited to join the cast of Jesus Christ Superstar alongside her mom and big sisters. She is a 2nd grader at Wrightstown Elementary School and loves dancing, imagining stories and performing onstage. Previous roles include Toto (Wizard of Oz), Angel/Polichinelle (The Nutcracker), and Mrs. Brill (Mary Poppins, Jr).</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Riley Topper.jpeg')"></div>
+<div class="bio-text">
+<h3>Riley Topper (Child Chorus)</h3>
+<p>Riley Topper (Ensemble) couldn't be happier to participate in Jesus Christ Superstar! She has won several scholarship awards with her competitive dance training at The Dance Ground in Newtown, PA. Prior theater roles include Ballerina Doll (The Nutcracker), Prince John (Robin Hood), Lullaby League (Wizard of Oz), Mrs. Corry (Mary Poppins, Jr) and Elephant Bird (Seussical).</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+<div class="card bio-card">
+<div class="bio-headshot" style="background-image:url('images/Mira Zimmelman.PNG')"></div>
+<div class="bio-text">
+<h3>Mira Zimmelman (Child Chorus)</h3>
+<p>Mira Zimmelman is excited to be part of The Keswick Theatre’s production of Jesus Christ Superstar. Her past roles include Olaf in Frozen, Mr. Etches in Titanic, 101 Dalmatians, Aladdin, Alice in Wonderland, and Dear Edwina. She also enjoys acting and improv classes and loves expressing herself through song. Mira is grateful for the support of her friends and family and looks forward to many more productions ahead.</p>
+<div class="read-more" onclick="toggleBio(this)">Read More</div>
+</div>
+</div>
+</div>
+<div class="section-subhead">Production Team</div><div class="bio-grid" style="margin-top: 0;"><div class="card bio-card"><div class="bio-headshot" style="background-image:url('images/Diane Wargo.png')"></div><div class="bio-text"><h3>Diane Wargo (Director)</h3><p>Diane Wargo has been active in theatre for over 50 years as an actress, director, choreographer, teacher, and producer. She is thrilled to return to the staging of Jesus Christ Superstar. A speech and theatre major, Diane earned degrees from Mercer County Community College, Trenton State College, and Villanova University, and furthered her training studying with Stella Adler in New York City. She has been a member of the Performing Arts Department at Notre Dame High School for 40 years, where she teaches Acting and Public Speaking and directs the spring production. Her favorite directing and choreography credits include Bat Boy: The Musical, Oklahoma!, The Adventures of Tom Sawyer, Brigadoon, Our Town, Man of La Mancha, Once on This Island, Fiddler on the Roof, Peter Pan, Radium Girls, and numerous original and immersive productions. As a performer, she has toured and appeared in leading roles, including Ado Annie (Oklahoma!), Sonia (Godspell), Hermia (A Midsummer Night’s Dream), Meg Brockie (Brigadoon), and Annie Oakley in Annie Get Your Gun. Diane has also worked with Midnight Productions for over 20 years and serves as Cast Manager for Sleepy Hollow Haunted Acres in Newtown, PA each haunt season. She is grateful to share her passion for theatre with the cast, crew, and musicians—and sends special thanks to her mom and Chelsea for their constant love and support.</p><div class="read-more" onclick="toggleBio(this)">>Read More</div></div></div><div class="card bio-card"><div class="bio-headshot" style="background-image:url('images/Sue den Outer.png')"></div><div class="bio-text"><h3>Sue Den Outer (Musical Director)</h3><p>Sue den Outer (music director) is thrilled to join the JCS production team this year. She is an actuary at WTW and a proud Cornell grad. She is a music director at PA/NJ area theaters, Sock ‘n’ Buskin at Council Rock North HS and UU Princeton. Favorite recent credits include Beautiful at Music Mountain Theatre and Titanic at Town &amp; Country Players.</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div><div class="card bio-card"><div class="bio-headshot"></div><div class="bio-text"><h3>Allen G. Doak, Jr. (Producer / Technical Designer)</h3><p>Allen is very pleased to have his Superstar family back together again this year. Besides his work on stage shows, Allen is known for his theatrical lighting of shows, parties and other affairs. He especially enjoys designing the elaborate scenery and special effects used for Midnight Productions' Haunted House in the Hollow in October. Allen is lighting designer for the Academy of Vocal Arts and works as a union stagehand in Philadelphia theatres. He is grateful for the loyalty and support of so many people who make "Jesus Christ Superstar" and the Haunted House such special events.</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div><div class="card bio-card"><div class="bio-headshot"></div><div class="bio-text"><h3>Newton R. Gilchrist (Director)</h3><p>Newton performed at the Kennedy Center's Words and Music revival of "Bells are Ringing" and "Where's Charlie." He created the role of Hank Munson on Broadway in "State Fair." You can see and hear him on the "State Fair" CD. He played Dap in the National Tour and Broadway Company of "Camelot." Other National Tours include "Drood," "Brigadoon," and "My Fair Lady." In Texas he played Sir John in "Me and My Girl" and the Padre in "Man of La Mancha." Newton played Merlin in "Camelot" starring Robert Goulet at Valley Forge Music Fair and Westbury, NY. You have also seen him in the movie "Dead Poet's Society" with Robin Williams. Directing credits include "Brighton Beach Memoirs," "Evita," "42nd Street," "Godspell," "Annie," "Little Mermaid," "Ain’t Misbehavin’" and many others.</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div><div class="card bio-card"><div class="bio-headshot"></div><div class="bio-text"><h3>Travis Johnson (Sound Design)</h3><p>Travis has worked in various design and technical capacities for productions around the country, including: Off-Broadway: Rock &amp; Roll Man. Touring: Moulin Rouge, Hairspray, Kinky Boots. Select Regional: Cotton (Kennedy Center, 92NY, La Jolla Music Society), Other World (DTC), Describe The Night (Wilma), Cabaret (BCCPA), A Chorus Line (BCCPA), Hand To God (PTC), Found: The Musical (PTC), Tommy (Media), Jesus Christ Superstar (Keswick).</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div><div class="card bio-card"><div class="bio-headshot"></div><div class="bio-text"><h3>Laura Baron (Stage Management)</h3><p>Laura Baron is a stage manager and theatre technician whose work spans lighting, audio, and video across regional and New York productions. Her credits include Off Broadway, Rock and Roll Man (video), Delaware Theatre Company, the world premiere of Otherworld (audio), Cotton, Lyric Fest, 92NY, and The Kennedy Center (audio, video, and lighting). She is thrilled to serve as Stage Manager and Technician for Jesus Christ Superstar and grateful to be part of this production.</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div><div class="card bio-card"><div class="bio-headshot"></div><div class="bio-text"><h3>Miranda Leiggi (Makeup Design)</h3><p>Miranda Leiggi has a BA in theatre from Drew University, and an MFA in creative writing from Arcadia University. She has worked as a scenic artist, set designer, costume designer, and makeup artist locally, Off-Broadway and with NJ SWAT and FBI. A series of short films she worked on was featured at San Diego Comic Con. Miranda is the director for the theater program at Council Rock High School North, and is currently directing Sweeney Todd.</p><div class="read-more" onclick="toggleBio(this)">Read More</div></div></div></div></div>
+</div>
+</div>
+</section>
+</main>
+<script>
+    function toggleBio(el) {
+      const bioText = el.parentElement;
+      bioText.classList.toggle('expanded');
+      el.textContent = bioText.classList.contains('expanded') ? 'Show Less' : 'Read More';
+    }
+  </script>
+</body>
+</html>
