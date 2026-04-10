@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: jsh2374-gif/JCS
+  branch: main
+
+media_folder: "images/cast"
+public_folder: "/JCS/images/cast"
+site_url: "https://jsh2374-gif.github.io/JCS/"
+display_url: "https://jsh2374-gif.github.io/JCS/"
+logo_url: "https://jsh2374-gif.github.io/JCS/"
+
+collections:
+  - name: "cast_bios"
+    label: "Cast Bios"
+    label_singular: "Cast Bio"
+    folder: "data/cast-members"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} — {{role}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", hint: "Use lowercase with dashes, like gigi-gibilisco" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Leads", "Featured", "Ensemble", "Orchestra", "Staff"], default: "Leads" }
+      - { label: "Headshot", name: "headshot", widget: "image", required: false, allow_multiple: false }
+      - { label: "Short Bio", name: "shortBio", widget: "text", required: false }
+      - { label: "Full Bio", name: "fullBio", widget: "markdown" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: true, required: false }
+      - { label: "Sort Order", name: "sortOrder", widget: "number", value_type: "int", default: 100 }
