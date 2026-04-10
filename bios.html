@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midnight Productions | Jesus Christ Superstar | Bios</title>
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --panel: #171717;
+      --line: #2f2f2f;
+      --text: #f4efe5;
+      --muted: #cfc7ba;
+      --accent: #ffffff;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family: Georgia, "Times New Roman", serif; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    header { border-bottom:1px solid var(--line); }
+    .nav, .hero, main { width:min(calc(100% - 32px), var(--max)); margin:0 auto; }
+    .nav { display:flex; gap:18px; padding:18px 0; flex-wrap:wrap; }
+    .nav a { font-size:.95rem; letter-spacing:.03em; text-transform:uppercase; }
+    .hero { padding:28px 0 22px; }
+    .eyebrow { color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; }
+    h1 { margin:10px 0 8px; font-size:clamp(2.2rem, 5vw, 4rem); font-weight:normal; }
+    .sub { color:var(--muted); max-width:760px; line-height:1.6; }
+    main { padding: 10px 0 56px; }
+    .group-title { margin:34px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); font-size:1.6rem; font-weight:normal; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; min-height:100%; }
+    .thumb { aspect-ratio: 4 / 5; background:#222 center/cover no-repeat; }
+    .card-body { padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .name { font-size:1.3rem; margin:0; }
+    .role { color:var(--muted); font-style:italic; }
+    .bio { line-height:1.65; color:#eee7db; }
+    .full { display:none; border-top:1px solid var(--line); padding-top:12px; margin-top:2px; }
+    button.more { align-self:flex-start; background:transparent; color:var(--accent); border:1px solid var(--line); border-radius:999px; padding:10px 14px; cursor:pointer; font:inherit; }
+    footer { border-top:1px solid var(--line); color:var(--muted); }
+    footer .inner { width:min(calc(100% - 32px), var(--max)); margin:0 auto; padding:20px 0 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="./">Playbill</a>
+      <a href="./cast.html">Cast & Credits</a>
+      <a href="./songs.html">Songs</a>
+      <a href="./bios.html" aria-current="page">Bios</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Midnight Productions presents</div>
+    <h1>Jesus Christ Superstar</h1>
+    <p class="sub">Cast biographies fed from editable JSON records, so performers can submit updates and headshots without anyone hand-editing the bios page.</p>
+  </section>
+
+  <main id="bios-root"></main>
+
+  <footer>
+    <div class="inner">Midnight Productions • Digital Playbill</div>
+  </footer>
+
+  <script>
+    async function loadBios() {
+      const root = document.getElementById('bios-root');
+      const response = await fetch('./data/cast.json', { cache: 'no-store' });
+      const items = await response.json();
+      const groups = [...new Set(items.map(item => item.category || 'Cast'))];
+
+      root.innerHTML = groups.map(group => {
+        const entries = items.filter(item => (item.category || 'Cast') === group);
+        return `
+          <section>
+            <h2 class="group-title">${group}</h2>
+            <div class="grid">
+              ${entries.map(item => `
+                <article class="card">
+                  <div class="thumb" style="background-image:url('${item.headshot || ''}')"></div>
+                  <div class="card-body">
+                    <h3 class="name">${item.name}</h3>
+                    <div class="role">${item.role || ''}</div>
+                    <div class="bio">${item.shortBio || ''}</div>
+                    <button class="more" type="button">Read More</button>
+                    <div class="bio full">${(item.fullBio || '').replace(/\n/g, '<br><br>')}</div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      }).join('');
+
+      root.querySelectorAll('.card').forEach((card) => {
+        const button = card.querySelector('.more');
+        const full = card.querySelector('.full');
+        button.addEventListener('click', () => {
+          const open = full.style.display === 'block';
+          full.style.display = open ? 'none' : 'block';
+          button.textContent = open ? 'Read More' : 'Show Less';
+        });
+      });
+    }
+
+    loadBios().catch((err) => {
+      document.getElementById('bios-root').innerHTML = `<p>Could not load bios. ${err.message}</p>`;
+    });
+  </script>
+</body>
+</html>

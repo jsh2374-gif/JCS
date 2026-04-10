@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "gigi-gibilisco",
+    "name": "Gigi Gibilisco",
+    "role": "Jesus",
+    "category": "Leads",
+    "headshot": "/JCS/images/cast/gigi-gibilisco.jpg",
+    "shortBio": "Returns to the stage with Midnight Productions and currently serves as Assistant Music Director at Notre Dame High School.",
+    "fullBio": "Gigi Gibilisco is excited to return to the stage with Midnight Productions...",
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "slug": "jamey-helsman",
+    "name": "Jamey Helsman",
+    "role": "Judas",
+    "category": "Leads",
+    "headshot": "/JCS/images/cast/jamey-helsman.jpg",
+    "shortBio": "A longtime Midnight Productions performer whose history with this show stretches back decades.",
+    "fullBio": "Jamey Helsman first auditioned for Midnight Productions' Jesus Christ Superstar in 1994...",
+    "featured": true,
+    "sortOrder": 2
+  },
+  {
+    "slug": "katrina-pilchman",
+    "name": "Katrina Pilchman",
+    "role": "Mary Magdalene",
+    "category": "Leads",
+    "headshot": "/JCS/images/cast/katrina-pilchman.jpg",
+    "shortBio": "Reprises Mary Magdalene with Midnight Productions and brings both stage and classical performance experience.",
+    "fullBio": "Katrina Pilchman is excited and honored to be reprising her role as Mary Magdalene...",
+    "featured": true,
+    "sortOrder": 3
+  }
+]
